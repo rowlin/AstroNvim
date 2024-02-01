@@ -69,6 +69,13 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+    -- auto open NeoTree on start
+    vim.api.nvim_create_autocmd("VimEnter", {
+      command = "set nornu nonu | Neotree toggle",
+    })
+    vim.api.nvim_create_autocmd("BufEnter", {
+      command = "set rnu nu",
+    })
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
